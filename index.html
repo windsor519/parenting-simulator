@@ -9,47 +9,60 @@
   <body>
     <div id="app">
       <aside class="panel">
-        <p class="eyebrow">Three.js Parenting Simulator</p>
-        <h1>Raise a tiny human, one choice at a time.</h1>
-        <p class="intro">
-          Balance care, play, learning, rest, and money while your child grows from baby to teen.
-          Every action changes their mood, energy, curiosity, trust, and your family budget.
-        </p>
+        <p class="eyebrow">Three.js Life Sim</p>
+        <h1>Parenting Simulator</h1>
+        <p class="intro">Guide your child from babyhood to adulthood. Balance love, learning, health, social life, family money, and your own energy. Choices compound into endings.</p>
 
-        <section class="stats" aria-label="Family stats">
-          <div><span>Mood</span><strong id="moodValue">75</strong></div>
-          <div><span>Energy</span><strong id="energyValue">70</strong></div>
-          <div><span>Curiosity</span><strong id="curiosityValue">45</strong></div>
-          <div><span>Trust</span><strong id="trustValue">60</strong></div>
-          <div><span>Budget</span><strong id="budgetValue">$120</strong></div>
-          <div><span>Day</span><strong id="dayValue">1</strong></div>
+        <div class="top-row">
+          <button id="newGameBtn">New Game</button>
+          <button id="saveBtn">Save</button>
+          <button id="loadBtn">Load</button>
+        </div>
+
+        <section class="status-card">
+          <div><span>Stage</span><strong id="stageValue">Baby</strong></div>
+          <div><span>Week</span><strong id="weekValue">1</strong></div>
+          <div><span>Age</span><strong id="ageValue">0</strong></div>
+          <div><span>Budget</span><strong id="budgetValue">$140</strong></div>
+        </section>
+
+        <section class="bars" aria-label="Family stats">
+          <div class="bar"><span>Mood</span><meter id="moodMeter" max="100"></meter><strong id="moodValue">75</strong></div>
+          <div class="bar"><span>Energy</span><meter id="energyMeter" max="100"></meter><strong id="energyValue">70</strong></div>
+          <div class="bar"><span>Health</span><meter id="healthMeter" max="100"></meter><strong id="healthValue">80</strong></div>
+          <div class="bar"><span>Learning</span><meter id="learningMeter" max="100"></meter><strong id="learningValue">35</strong></div>
+          <div class="bar"><span>Social</span><meter id="socialMeter" max="100"></meter><strong id="socialValue">40</strong></div>
+          <div class="bar"><span>Trust</span><meter id="trustMeter" max="100"></meter><strong id="trustValue">65</strong></div>
+          <div class="bar"><span>Parent Stress</span><meter id="stressMeter" max="100"></meter><strong id="stressValue">25</strong></div>
         </section>
 
         <section class="actions" aria-label="Parenting actions">
-          <button data-action="feed">Feed</button>
-          <button data-action="play">Play</button>
-          <button data-action="teach">Teach</button>
-          <button data-action="comfort">Comfort</button>
-          <button data-action="work">Work</button>
-          <button data-action="sleep">Sleep</button>
+          <button data-action="meal">Cook Meal <small>+$health -$12</small></button>
+          <button data-action="play">Play Together <small>+$mood +$trust</small></button>
+          <button data-action="study">Study Time <small>+$learning</small></button>
+          <button data-action="friends">Playdate <small>+$social -$8</small></button>
+          <button data-action="doctor">Doctor Visit <small>+$health -$30</small></button>
+          <button data-action="discipline">Set Boundary <small>Risk / reward</small></button>
+          <button data-action="work">Extra Shift <small>+$45 +stress</small></button>
+          <button data-action="rest">Family Rest <small>-stress +energy</small></button>
         </section>
 
         <section class="event-card">
-          <h2 id="stageValue">Baby Stage</h2>
-          <p id="eventText">Welcome home. Your tiny human is waiting for your first choice.</p>
+          <h2 id="eventTitle">Welcome Home</h2>
+          <p id="eventText">Your parenting journey begins. Make weekly choices and watch the 3D world evolve.</p>
         </section>
       </aside>
 
-      <main id="scene" aria-label="3D parenting simulator scene"></main>
+      <main class="world-wrap">
+        <div id="scene" aria-label="3D parenting simulator scene"></div>
+        <div class="hud">
+          <strong id="endingValue">Goal: reach age 18 with a healthy, trusted, capable child.</strong>
+        </div>
+      </main>
     </div>
 
     <script type="importmap">
-      {
-        "imports": {
-          "three": "https://unpkg.com/three@0.165.0/build/three.module.js",
-          "three/addons/": "https://unpkg.com/three@0.165.0/examples/jsm/"
-        }
-      }
+      { "imports": { "three": "https://unpkg.com/three@0.165.0/build/three.module.js" } }
     </script>
     <script type="module" src="./src/main.js"></script>
   </body>
