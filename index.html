@@ -9,8 +9,8 @@
   <body>
     <div id="app">
       <aside class="panel">
-        <p class="eyebrow">Three.js Life Sim</p>
-        <h1>Parenting Simulator</h1>
+        <div class="brand"><div class="crest">✦</div><div><p class="eyebrow">Cinematic Three.js Life Sim</p>
+        <h1 class="title">Parenting Simulator</h1></div></div>
         <p class="intro">Guide your child from babyhood to adulthood. Balance love, learning, health, social life, family money, and your own energy. Choices compound into endings.</p>
 
         <div class="top-row">
@@ -24,6 +24,7 @@
           <div><span>Week</span><strong id="weekValue">1</strong></div>
           <div><span>Age</span><strong id="ageValue">0</strong></div>
           <div><span>Budget</span><strong id="budgetValue">$140</strong></div>
+          <div><span>Care Streak</span><strong id="streakValue">0 weeks</strong></div>
         </section>
 
         <section class="bars" aria-label="Family stats">
@@ -51,12 +52,19 @@
           <h2 id="eventTitle">Welcome Home</h2>
           <p id="eventText">Your parenting journey begins. Make weekly choices and watch the 3D world evolve.</p>
         </section>
+
+        <section class="memory-card">
+          <h2>Memory Timeline</h2>
+          <div id="memoryRail" class="memory-rail" aria-live="polite"></div>
+        </section>
       </aside>
 
       <main class="world-wrap">
         <div id="scene" aria-label="3D parenting simulator scene"></div>
+        <div class="vignette"></div>
+        <div class="scanlines"></div>
         <div class="hud">
-          <strong id="endingValue">Goal: reach age 18 with a healthy, trusted, capable child.</strong>
+          <div><span>Legacy Objective</span><br><strong id="endingValue">Goal: reach age 18 with a healthy, trusted, capable child.</strong></div><span>Live 3D Diorama</span>
         </div>
       </main>
     </div>
