@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parenting Simulator</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <aside class="panel">
+        <p class="eyebrow">Three.js Parenting Simulator</p>
+        <h1>Raise a tiny human, one choice at a time.</h1>
+        <p class="intro">
+          Balance care, play, learning, rest, and money while your child grows from baby to teen.
+          Every action changes their mood, energy, curiosity, trust, and your family budget.
+        </p>
+
+        <section class="stats" aria-label="Family stats">
+          <div><span>Mood</span><strong id="moodValue">75</strong></div>
+          <div><span>Energy</span><strong id="energyValue">70</strong></div>
+          <div><span>Curiosity</span><strong id="curiosityValue">45</strong></div>
+          <div><span>Trust</span><strong id="trustValue">60</strong></div>
+          <div><span>Budget</span><strong id="budgetValue">$120</strong></div>
+          <div><span>Day</span><strong id="dayValue">1</strong></div>
+        </section>
+
+        <section class="actions" aria-label="Parenting actions">
+          <button data-action="feed">Feed</button>
+          <button data-action="play">Play</button>
+          <button data-action="teach">Teach</button>
+          <button data-action="comfort">Comfort</button>
+          <button data-action="work">Work</button>
+          <button data-action="sleep">Sleep</button>
+        </section>
+
+        <section class="event-card">
+          <h2 id="stageValue">Baby Stage</h2>
+          <p id="eventText">Welcome home. Your tiny human is waiting for your first choice.</p>
+        </section>
+      </aside>
+
+      <main id="scene" aria-label="3D parenting simulator scene"></main>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.165.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.165.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
